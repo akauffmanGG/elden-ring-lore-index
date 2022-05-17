@@ -1,0 +1,30 @@
+{
+  "name": "elden-ring-lore-index",
+  "version": "1.0.0",
+  "description": "A repository of all elden ring lore text for easy browsing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akauffmanGG/elden-ring-lore-index.git"
+  },
+  "keywords": [
+    "elden",
+    "ring",
+    "lore",
+    "fromsoft",
+    "souls",
+    "lands",
+    "between",
+    "marika",
+    "tarnished"
+  ],
+  "author": "andy kauffman",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/akauffmanGG/elden-ring-lore-index/issues"
+  },
+  "homepage": "https://github.com/akauffmanGG/elden-ring-lore-index#readme"
+}
