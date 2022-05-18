@@ -51,12 +51,18 @@ function createCollapsibleTitle(text) {
 }
 
 function createLinkTitle(text, id) {
-    const title = document.createElement('a');
-    title.innerHTML = text;
+    const title = createLinkEl(text, id);
     title.className = "menu-title";
-    title.href = `#${id}`;
 
     return title;
+}
+
+function createLinkEl(text, id) {
+    const link = document.createElement('a');
+    link.innerHTML = text;
+    link.href = `#${id}`;
+
+    return link;
 }
 
 function createContent(items) {
@@ -67,7 +73,9 @@ function createContent(items) {
 
     items.forEach(item => {
         const itemEl = document.createElement('li');
-        itemEl.innerHTML = item.innerHTML;
+        const link = createLinkEl(item.innerHTML, item.id);
+        itemEl.className = "menu-item";
+        itemEl.appendChild(link);
 
         itemsEl.appendChild(itemEl);
     });
