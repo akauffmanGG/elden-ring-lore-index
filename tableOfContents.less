@@ -2,13 +2,16 @@
     .menu {
         margin-top: 5px;
 
-        .menu-title {
+        a {
             color: #bdc1c6;
-            border-bottom: 1px solid #bdc1c6;
-            padding: 10px 5px 5px 5px;
-            cursor: pointer;
             text-decoration: none;
             display: block;
+            cursor: pointer;
+        }
+
+        .menu-title {
+            border-bottom: 1px solid #bdc1c6;
+            padding: 10px 5px 5px 5px;
 
             &.collapsible:after {
                 content: '\02795';
