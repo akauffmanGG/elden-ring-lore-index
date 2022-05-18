@@ -1,0 +1,41 @@
+.table-of-contents {
+    .menu {
+        margin-top: 5px;
+
+        .menu-title {
+            color: #bdc1c6;
+            border-bottom: 1px solid #bdc1c6;
+            padding: 10px 5px 5px 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+
+            &.collapsible:after {
+                content: '\02795';
+                float: right;
+                margin-left: 5px;
+                margin-right: 10px;
+                color: #bdc1c6;
+                font-size: 12px;
+            }
+
+            &.collapsible.active:after {
+                content: '\2796';
+            }
+
+            &.active, &:hover {
+                background-color: rgb(59, 59, 59);
+            }
+        }
+
+        .menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+
+            ul {
+                list-style: none;
+            }
+        }
+    }
+}

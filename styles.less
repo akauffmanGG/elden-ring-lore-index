@@ -1,4 +1,25 @@
+@import "tableOfContents.less";
+
 body {
     background-color: #202124;
     color: #bdc1c6;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sidebar {
+        border: 1px solid #bdc1c6;
+        flex: 0 0 20%;
+    }
+
+    .main {
+        flex: 1 1 auto;
+        padding: 20px;
+    }
+
+    .sidebar {
+        padding: 10px;
+    }
 }
