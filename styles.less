@@ -1,22 +1,27 @@
+@import "variables.less";
 @import "tableOfContents.less";
 
 body {
-    background-color: #202124;
-    color: #bdc1c6;
+    background-color: @BACKGROUND_COLOR;
+    color: @FONT_COLOR;
 
     .content {
         display: flex;
         flex-direction: row;
+        max-height: 95vh;
+        overflow: hidden;
     }
 
     .sidebar {
-        border: 1px solid #bdc1c6;
+        border: 1px solid @FONT_COLOR;
         flex: 0 0 20%;
+        overflow: auto;
     }
 
     .main {
         flex: 1 1 auto;
-        padding: 20px;
+        padding: 0px 20px 20px 20px;
+        overflow: auto;
     }
 
     .sidebar {
