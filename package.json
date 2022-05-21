@@ -26,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/akauffmanGG/elden-ring-lore-index/issues"
   },
-  "homepage": "https://github.com/akauffmanGG/elden-ring-lore-index#readme"
+  "homepage": "https://github.com/akauffmanGG/elden-ring-lore-index#readme",
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
 }
