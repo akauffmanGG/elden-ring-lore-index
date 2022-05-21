@@ -84,3 +84,5 @@ function createContent(items) {
 
     return content;
 }
+
+document.body.onload=initialize;
