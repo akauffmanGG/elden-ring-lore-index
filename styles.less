@@ -2,7 +2,7 @@
 @import "tableOfContents.less";
 
 body {
-    background-color: @BACKGROUND_COLOR;
+    background-image: url("background.jpg");
     color: @FONT_COLOR;
     font-family: 'Roboto', sans-serif;
     
@@ -14,8 +14,9 @@ body {
     .content {
         display: flex;
         flex-direction: row;
-        max-height: 95vh;
+        max-height: 98vh;
         overflow: hidden;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 
     .sidebar {
@@ -37,6 +38,5 @@ body {
     .lore {
         font-style: italic;
         color: @SECONDARY_COLOR;
-        // font-family: 'Fondamento', cursive;
     }
 }
