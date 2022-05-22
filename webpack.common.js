@@ -1,12 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html',
+      template: 'index.html'
     }),
+    new CopyPlugin({
+        patterns: [
+          { from: "includes/*.html", to: "includes/[name][ext]" }
+        ],
+      }),
   ],
   module: {
     rules: [
