@@ -2,9 +2,11 @@
   "name": "elden-ring-lore-index",
   "version": "1.0.0",
   "description": "A repository of all elden ring lore text for easy browsing",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,16 @@
   "bugs": {
     "url": "https://github.com/akauffmanGG/elden-ring-lore-index/issues"
   },
-  "homepage": "https://github.com/akauffmanGG/elden-ring-lore-index#readme"
+  "homepage": "https://github.com/akauffmanGG/elden-ring-lore-index#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "less": "^4.1.2",
+    "less-loader": "^11.0.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0",
+    "webpack-merge": "^5.8.0"
+  }
 }

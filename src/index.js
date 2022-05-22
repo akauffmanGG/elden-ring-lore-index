@@ -1,3 +1,5 @@
+import './styles/styles.less';
+
 function initialize() {
     buildTableOfContents();
 }
@@ -84,3 +86,5 @@ function createContent(items) {
 
     return content;
 }
+
+document.body.onload=initialize;
