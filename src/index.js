@@ -1,3 +1,5 @@
+import './styles.less';
+
 function initialize() {
     buildTableOfContents();
 }
