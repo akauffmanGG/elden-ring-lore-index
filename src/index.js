@@ -1,123 +1,114 @@
-import './styles/styles.less'
+import './styles/styles.less';
 
-function initialize () {
-    includeHtml();
-  buildTableOfContents()
+async function initialize () {
+  await includeHtml();
+  buildTableOfContents();
 }
 
-function includeHtml () {
-  let z, i, elmnt, file, xhttp
-  /* Loop through a collection of all HTML elements: */
-  let elements = document.querySelectorAll('.include')
-  elements.forEach( element => {
-
+async function includeHtml () {
+  let elements = document.querySelectorAll('.include');
+  let promises = Array.from(elements).map(async element => {
     /*search for elements with a certain atrribute:*/
-    file = element.getAttribute('include-html');
+    let file = element.getAttribute('include-html');
     if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest()
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            element.innerHTML = this.responseText
-          }
-          if (this.status == 404) {
-            element.innerHTML = 'Page not found.'
-          }
-          /* Remove the attribute, and call this function once more: */
-          element.removeAttribute('include-html')
-          includeHTML();
-        }
+      let response = await fetch('includes/' + file);
+      let body;
+      if (response.ok) {
+        body = await response.text();
+      } else {
+        body = 'Could not load content';
       }
-      xhttp.open('GET', 'includes/' + file, true)
-      xhttp.send()
-      /* Exit the function: */
-      return
+
+      element.innerHTML = body;
+
+      return body;
     }
   });
+
+  return Promise.all(promises);
 }
 
 function buildTableOfContents () {
-  const sidebar = document.querySelector('.sidebar')
-  const toc = document.createElement('div')
-  toc.className = 'table-of-contents'
+  const sidebar = document.querySelector('.sidebar');
+  const toc = document.createElement('div');
+  toc.className = 'table-of-contents';
 
-  const categories = document.querySelectorAll('.main .category')
+  const categories = document.querySelectorAll('.main .category');
   categories.forEach(category => {
-    const titleEl = category.querySelector('h2')
-    const menu = document.createElement('div')
-    menu.className = 'menu'
+    const titleEl = category.querySelector('h2');
+    const menu = document.createElement('div');
+    menu.className = 'menu';
 
-    const items = category.querySelectorAll('.items h3')
+    const items = category.querySelectorAll('.items h3');
     if (items.length) {
-      const title = createCollapsibleTitle(titleEl.innerHTML)
-      menu.appendChild(title)
+      const title = createCollapsibleTitle(titleEl.innerHTML);
+      menu.appendChild(title);
 
-      menu.appendChild(createContent(items))
+      menu.appendChild(createContent(items));
     } else {
-      const title = createLinkTitle(titleEl.innerHTML, titleEl.id)
+      const title = createLinkTitle(titleEl.innerHTML, titleEl.id);
 
-      menu.appendChild(title)
+      menu.appendChild(title);
     }
 
-    toc.appendChild(menu)
-  })
+    toc.appendChild(menu);
+  });
 
-  sidebar.appendChild(toc)
+  sidebar.appendChild(toc);
 }
 
 function createCollapsibleTitle (text) {
-  const title = document.createElement('div')
-  title.innerHTML = text
-  title.className = 'menu-title'
-  title.classList.add('collapsible')
+  const title = document.createElement('div');
+  title.innerHTML = text;
+  title.className = 'menu-title';
+  title.classList.add('collapsible');
   title.addEventListener('click', function () {
-    this.classList.toggle('active')
+    this.classList.toggle('active');
 
-    let content = this.nextElementSibling
+    let content = this.nextElementSibling;
     if (content.style.maxHeight) {
-      content.style.maxHeight = null
+      content.style.maxHeight = null;
     } else {
-      content.style.maxHeight = content.scrollHeight + 'px'
+      content.style.maxHeight = content.scrollHeight + 'px';
     }
-  })
+  });
 
-  return title
+  return title;
 }
 
 function createLinkTitle (text, id) {
-  const title = createLinkEl(text, id)
-  title.className = 'menu-title'
+  const title = createLinkEl(text, id);
+  title.className = 'menu-title';
 
-  return title
+  return title;
 }
 
 function createLinkEl (text, id) {
-  const link = document.createElement('a')
-  link.innerHTML = text
-  link.href = `#${id}`
+  const link = document.createElement('a');
+  link.innerHTML = text;
+  link.href = `#${id}`;
 
-  return link
+  return link;
 }
 
 function createContent (items) {
-  const content = document.createElement('div')
-  content.className = 'menu-content'
+  const content = document.createElement('div');
+  content.className = 'menu-content';
 
-  const itemsEl = document.createElement('ul')
+  const itemsEl = document.createElement('ul');
 
   items.forEach(item => {
-    const itemEl = document.createElement('li')
-    const link = createLinkEl(item.innerHTML, item.id)
-    itemEl.className = 'menu-item'
-    itemEl.appendChild(link)
+    const itemEl = document.createElement('li');
+    const link = createLinkEl(item.innerHTML, item.id);
+    itemEl.className = 'menu-item';
+    itemEl.appendChild(link);
 
-    itemsEl.appendChild(itemEl)
-  })
+    itemsEl.appendChild(itemEl);
+  });
 
-  content.appendChild(itemsEl)
+  content.appendChild(itemsEl);
 
-  return content
+  return content;
 }
 
-document.body.onload = initialize
+document.body.onload = initialize;
