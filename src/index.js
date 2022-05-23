@@ -11,7 +11,7 @@ async function includeHtml () {
     /*search for elements with a certain atrribute:*/
     let file = element.getAttribute('include-html');
     if (file) {
-      let response = await fetch('includes/' + file);
+      let response = await fetch(`includes/${file}.html`);
       let body;
       if (response.ok) {
         body = await response.text();
