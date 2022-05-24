@@ -1,6 +1,7 @@
 @import "variables.less";
 @import "tableOfContents.less";
 @import "autocomplete.less";
+@import "sidebar.less";
 
 body {
     background-image: url("~/src/assets/background.jpg");
@@ -27,12 +28,6 @@ body {
         background-color: rgba(0, 0, 0, 0.8);
     }
 
-    .sidebar {
-        border: 1px solid @FONT_COLOR;
-        flex: 0 0 20%;
-        overflow: auto;
-    }
-
     .main {
         flex: 1 1 auto;
         padding: 0px 20px 20px 20px;
@@ -44,10 +39,6 @@ body {
             padding-right: 10px;
             margin-bottom: 5px;
         }
-    }
-
-    .sidebar {
-        padding: 10px;
     }
 
     .lore {

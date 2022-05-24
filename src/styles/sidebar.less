@@ -1,0 +1,54 @@
+.sidebar {
+  width: 25px;
+  flex: 0 0 auto;
+  overflow: auto;
+  padding-top: 10px;
+  padding-left: 10px;
+  border: none;
+
+  .button-bar {
+    a {
+        color: @FONT_COLOR;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 900;
+        border: 1px solid @FONT_COLOR;
+        border-radius: 5px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    padding-bottom: 5px;
+  }
+
+  .table-of-contents, .autocomplete, .expand-btn {
+    display: none;
+  }
+
+  .expand-btn {
+    float: right;
+  }
+
+  .open-btn {
+    display: inline-block;
+  }
+
+  &.open {
+    width: 20%;
+    border: 1px solid @FONT_COLOR;
+    padding: 10px;
+
+    .table-of-contents, .autocomplete {
+      display: block;
+    }
+
+    .expand-btn {
+      display: inline-block;
+    }
+
+    &.expanded {
+      width: 50%;
+    }
+  }
+}
