@@ -1,7 +1,9 @@
 import './styles/styles.less';
+import { default as autocomplete } from './autocomplete.js';
 
 async function initialize () {
   await includeHtml();
+  autocomplete();
   buildTableOfContents();
 }
 
@@ -27,6 +29,7 @@ async function includeHtml () {
 
   return Promise.all(promises);
 }
+
 
 function buildTableOfContents () {
   const sidebar = document.querySelector('.sidebar');
