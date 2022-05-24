@@ -115,12 +115,18 @@ function createContent (items) {
 
 export function toggleOpen() {
   const sidebar = document.querySelector('.sidebar');
+  const icon = sidebar.querySelector('.button-bar .open-btn i');
   sidebar.classList.toggle('open');
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-xmark');
 }
 
 export function toggleExpand() {
   const sidebar = document.querySelector('.sidebar');
+  const icon = sidebar.querySelector('.button-bar .expand-btn i');
   sidebar.classList.toggle('expanded');
+  icon.classList.toggle('fa-angles-right');
+  icon.classList.toggle('fa-angles-left');
 }
 
 document.body.onload = initialize;
