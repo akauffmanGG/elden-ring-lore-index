@@ -113,10 +113,14 @@ function createContent (items) {
   return content;
 }
 
-export function closeNav() {
+export function toggleOpen() {
   const sidebar = document.querySelector('.sidebar');
-  sidebar.classList.remove('open');
-  sidebar.classList.add('closed');
+  sidebar.classList.toggle('open');
+}
+
+export function toggleExpand() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('expanded');
 }
 
 document.body.onload = initialize;

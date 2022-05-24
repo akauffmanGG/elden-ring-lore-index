@@ -1,33 +1,48 @@
 .sidebar {
-  border: 1px solid @FONT_COLOR;
-  padding: 10px;
+  width: 20px;
   flex: 0 0 auto;
   overflow: auto;
-  transition: 0.3s;
+  padding-top: 10px;
+  padding-left: 10px;
+  border: none;
 
   .button-bar {
     a {
         color: @FONT_COLOR;
         text-decoration: none;
-        display: block;
         cursor: pointer;
         font-size: 16px;
         font-weight: 900;
     }
   }
 
-  &.open {
-    width: 20%;
+  .table-of-contents, .autocomplete, .expand-btn {
+    display: none;
   }
 
-  &.closed {
-    width: 20px;
-    padding: 0px;
-    border: none;
+  .expand-btn {
+    float: right;
+  }
+
+  .open-btn {
+    display: inline-block;
+  }
+
+  &.open {
+    width: 20%;
+    border: 1px solid @FONT_COLOR;
+    padding: 10px;
 
     .table-of-contents, .autocomplete {
-      display: none;
+      display: block;
     }
 
+    .expand-btn {
+      display: inline-block;
+    }
+
+    &.expanded {
+      width: 50%;
+    }
   }
 }
