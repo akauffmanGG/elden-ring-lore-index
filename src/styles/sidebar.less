@@ -1,0 +1,33 @@
+.sidebar {
+  border: 1px solid @FONT_COLOR;
+  padding: 10px;
+  flex: 0 0 auto;
+  overflow: auto;
+  transition: 0.3s;
+
+  .button-bar {
+    a {
+        color: @FONT_COLOR;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 900;
+    }
+  }
+
+  &.open {
+    width: 20%;
+  }
+
+  &.closed {
+    width: 20px;
+    padding: 0px;
+    border: none;
+
+    .table-of-contents, .autocomplete {
+      display: none;
+    }
+
+  }
+}

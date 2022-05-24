@@ -30,7 +30,6 @@ async function includeHtml () {
   return Promise.all(promises);
 }
 
-
 function buildTableOfContents () {
   const sidebar = document.querySelector('.sidebar');
   const toc = document.createElement('div');
@@ -112,6 +111,12 @@ function createContent (items) {
   content.appendChild(itemsEl);
 
   return content;
+}
+
+export function closeNav() {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.remove('open');
+  sidebar.classList.add('closed');
 }
 
 document.body.onload = initialize;

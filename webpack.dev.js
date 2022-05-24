@@ -6,6 +6,8 @@ module.exports = merge(common, {
   mode: 'development',
   output: {
     filename: 'bundle.js',
+    library: 'lib',
+    libraryTarget: 'umd',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
