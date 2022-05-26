@@ -10,7 +10,8 @@ module.exports = {
     }),
     new CopyPlugin({
         patterns: [
-          { from: "includes/*.html", to: "includes/[name][ext]" }
+          { from: "includes/*.html", to: "includes/[name][ext]" },
+          { from: "src/assets/static/*", to: "[name][ext]"}
         ],
       }),
   ],
