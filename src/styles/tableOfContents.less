@@ -1,6 +1,13 @@
-@HOVER_COLOR: #3b3b3b;
 
 .table-of-contents {
+    .group {
+      margin-top: 5px;
+      padding: 5px 5px 5px 10px;
+      background-color: fade(@BACKGROUND_ALT_COLOR, 50%);
+      color: @PRIMARY_COLOR;
+      font-family: 'Fondamento', cursive;
+    }
+
     .menu {
         margin-top: 5px;
 
@@ -30,7 +37,7 @@
             }
 
             &.active, &:hover {
-                background-color: @HOVER_COLOR;
+                background-color: fade(@BACKGROUND_ALT_COLOR, 50%);
             }
         }
 
@@ -47,7 +54,7 @@
                     padding: 5px 5px 0px 5px;
 
                     &:hover {
-                        background-color: @HOVER_COLOR;
+                        background-color: fade(@BACKGROUND_ALT_COLOR, 50%);
                     }
                 }
             }
